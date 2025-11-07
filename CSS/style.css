@@ -87,6 +87,55 @@ body {
   color: #f8c20e;
 }
 
+/* Hide the mobile menu toggle (hamburger) on larger screens */
+.menu-toggle {
+  display: none;
+}
+
+/* Show full nav bar and hide hamburger on wider screens */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    position: static;
+    height: auto;
+    background: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Mobile: show hamburger and make nav links slide-in */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 200px;
+    height: calc(100vh - 70px);
+    background: rgba(10, 10, 15, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    gap: 25px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+}
+
+
 /* ===== HOME ===== */
 .home {
   position: relative;
